@@ -14,12 +14,14 @@ function App() {
   }, [])
 
   useEffect(() => {
-    setInterval(() => {
+    console.log("1");
+    const int = setInterval(() => {
       setIndex(index => index + 1)
-      if(index+1>object.length) {
+      if(index>object.length-2) {
         setIndex(0)
       }
     }, 2000)
+    return () => clearInterval(int)
   }, [index])
   
   const fetchData = () => {
